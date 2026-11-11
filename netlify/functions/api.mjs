@@ -1,9 +1,9 @@
 import { getStore } from '@netlify/blobs';
-import { handle } from '../../lib/quiz.mjs';
+import { handle } from '../../lib/game.mjs';
 
 export default async (request) => {
   try {
-    const store = getStore({ name: 'zero-conditional-rooms-v1', consistency: 'strong' });
+    const store = getStore({ name: 'zero-conditional-rooms-v2', consistency: 'strong' });
     return await handle(request, store);
   } catch (error) {
     console.error('Quiz storage unavailable:', error.message);
