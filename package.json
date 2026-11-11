@@ -1,0 +1,17 @@
+{
+  "name": "zero-conditional-live-netlify",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/check.mjs",
+    "test": "node --test test/quiz.test.mjs",
+    "dev": "npx netlify dev"
+  },
+  "dependencies": {
+    "@netlify/blobs": "11.1.9"
+  }
+}

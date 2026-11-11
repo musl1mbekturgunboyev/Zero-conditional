@@ -1,0 +1,10 @@
+import {readFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+import {questions} from '../lib/questions.mjs';
+const html=readFileSync(new URL('../public/index.html',import.meta.url),'utf8');
+assert.ok(html.startsWith('<!doctype html>'));
+assert.ok(html.trim().endsWith('</html>'));
+new Function(html.match(/<script>([\s\S]*?)<\/script>/)[1]);
+assert.equal(questions.length,12);
+assert.ok(questions.every(q=>q[1].length===4&&Number.isInteger(q[2])&&q[2]>=0&&q[2]<4));
+console.log('Build OK: frontend script and 12 questions checked.');
